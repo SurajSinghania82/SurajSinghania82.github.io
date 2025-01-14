@@ -2,7 +2,6 @@
   "name": "coreinsights-ai",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://SurajSinghania82.github.io/CoreInsightsAI_Website",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

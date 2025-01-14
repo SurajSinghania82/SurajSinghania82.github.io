@@ -75,6 +75,12 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
+      - name: Add CNAME file
+        run: |
+          mkdir -p out  # Creates the out directory if it doesn't exist
+          touch out/CNAME  # Creates the CNAME file
+          echo "www.coreinsightsai.com" > out/CNAME  # Adds the domain to CNAME file
+          chmod 644 out/CNAME  # Ensures the correct permissions
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -88,15 +94,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Add CNAME file for custom domain
-        run: |
-          # Create the CNAME file using `touch`
-          # touch out/CNAME
-          # # Ensure proper permissions for the CNAME file
-          # chmod 644 out/CNAME  # Allow read/write permissions for the owner and read for others
-          # # Add the domain to the CNAME file
-          # echo "www.coreinsightsai.com" > out/CNAME
-          ls
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

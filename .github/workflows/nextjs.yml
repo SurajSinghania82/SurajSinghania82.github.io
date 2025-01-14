@@ -91,11 +91,12 @@ jobs:
       - name: Add CNAME file for custom domain
         run: |
           # Create the CNAME file using `touch`
-          touch out/CNAME
-          # Ensure proper permissions for the CNAME file
-          chmod 644 out/CNAME  # Allow read/write permissions for the owner and read for others
-          # Add the domain to the CNAME file
-          echo "www.coreinsightsai.com" > out/CNAME
+          # touch out/CNAME
+          # # Ensure proper permissions for the CNAME file
+          # chmod 644 out/CNAME  # Allow read/write permissions for the owner and read for others
+          # # Add the domain to the CNAME file
+          # echo "www.coreinsightsai.com" > out/CNAME
+          ls
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

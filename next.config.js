@@ -5,11 +5,11 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   images: { unoptimized: true },
-  distDir: 'build', // This will tell Next.js to output the build files to the 'build' folder
-  basePath: '',
+  trailingSlash: true,
+  distDir: 'out', // Use 'out' as the default export folder
+  basePath: '', // Replace 'repo-name' with your GitHub repository name
   assetPrefix: '',
-  // Optional: Enable static optimization for specific pages
-  trailingSlash: true, // Creates index.html in the `out/` directory for each page
 };
 
 module.exports = nextConfig;
+

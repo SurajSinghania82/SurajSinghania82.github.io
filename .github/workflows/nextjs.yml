@@ -88,6 +88,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - name: Add CNAME file for custom domain
+        run: echo "www.coreinsightsai.com" > out/CNAME  # Replace with your custom domain
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
